@@ -1,3 +1,9 @@
+import Sys.*;
+import sys.FileSystem.*;
+import sys.io.File.*;
+import haxe.*;
+import haxe.io.*;
+
 @:enum
 abstract ExitCode(Int) from Int to Int
 {
@@ -26,8 +32,8 @@ class Run
 	
 	static function runCommand(cmd:String, args:Array<String>):ExitCode
 	{
-		Sys.println(cmd + " " + args.join(" "));
-		return Sys.command(cmd, args);
+		println(cmd + " " + args.join(" "));
+		return command(cmd, args);
 	}
 	
 	static function openFlRun(args:Array<String>):ExitCode
