@@ -1,5 +1,14 @@
-class Run {
-	static function main():Void {
+@:enum
+abstract ExitCode(Int) from Int to Int
+{
+	var SUCCESS = 0;
+	var FAILURE = 1;
+}
+
+class Run
+{
+	static function main():Void
+	{
 		trace("Hello world! 2");
 		
 		#if flash
