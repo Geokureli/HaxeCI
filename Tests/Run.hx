@@ -1,4 +1,4 @@
-class HelloWorld {
+class Run {
 	static function main():Void {
 		trace("Hello world! 1");
 
