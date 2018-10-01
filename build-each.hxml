@@ -1,2 +1,2 @@
--main HelloWorld
--cp src
+-main Run
+-cp Tests

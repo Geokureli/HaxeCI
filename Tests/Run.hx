@@ -1,6 +1,6 @@
 class HelloWorld {
 	static function main():Void {
-		trace("Hello world!");
+		trace("Hello world! 1");
 
 		#if flash
 		flash.system.System.exit(0);
