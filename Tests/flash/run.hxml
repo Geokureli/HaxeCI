@@ -1,2 +1,2 @@
--cp flash
+-cp Tests/flash
 --run Run
