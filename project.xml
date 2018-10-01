@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="Hot Potato Game Dev" package="org.potato" version="1.0.0" company="GeoKureli" />
+	<app main="Main" path="Export" file="HotPotato" />
+	
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	
+</project>
