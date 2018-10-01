@@ -18,8 +18,8 @@ neko: "2.2.0"
 
 matrix:
   # Allow Haxe development to fail.
-  allow_failures:
-   - haxe: development
+  #allow_failures:
+  #  - haxe: development
 
 addons:
   # This is the preferred way to install apt packages.
@@ -32,46 +32,46 @@ addons:
       - gcc-multilib
       - g++-multilib
       # Python
-      - python3
+      #- python3
       # C#
-      - mono-devel
-      - mono-mcs
+      #- mono-devel
+      #- mono-mcs
       # Flash
       - libglib2.0
       - libfreetype6
       # Lua
-      - cmake3
-      - lua5.1
-      - luarocks
-      - libpcre3-dev
-      - libssl-dev
+      #- cmake3
+      #- lua5.1
+      #- luarocks
+      #- libpcre3-dev
+      #- libssl-dev
 
 install:
   # os-specific config
-  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-     export DISPLAY=:99.0;
-     export AUDIODEV=null;
-     phpenv global 7.0;
-   elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
-     brew update;
-     brew install mono;
-     brew install phantomjs;
-     brew upgrade python;
-     brew install php;
-   fi
+  #- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+  #    export DISPLAY=:99.0;
+  #    export AUDIODEV=null;
+  #    phpenv global 7.0;
+  #  elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
+  #    brew update;
+  #    brew install mono;
+  #    brew install phantomjs;
+  #    brew upgrade python;
+  #    brew install php;
+  #  fi
   # Haxe Lua dependencies
-  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-     sudo luarocks install luasec OPENSSL_LIBDIR=/usr/lib/x86_64-linux-gnu;
-     sudo luarocks install lrexlib-pcre PCRE_LIBDIR=/usr/lib/x86_64-linux-gnu;
-     sudo luarocks install luabitop;
-   elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
-     brew install lua luarocks pcre python;
-     sudo luarocks install lrexlib-pcre;
-     sudo luarocks install luasocket;
-   fi
-  - sudo luarocks install luv
-  - sudo luarocks install environ
-  - sudo luarocks install luautf8
+  #- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+  #    sudo luarocks install luasec OPENSSL_LIBDIR=/usr/lib/x86_64-linux-gnu;
+  #    sudo luarocks install lrexlib-pcre PCRE_LIBDIR=/usr/lib/x86_64-linux-gnu;
+  #    sudo luarocks install luabitop;
+  #  elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
+  #    brew install lua luarocks pcre python;
+  #    sudo luarocks install lrexlib-pcre;
+  #    sudo luarocks install luasocket;
+  #  fi
+  #- sudo luarocks install luv
+  #- sudo luarocks install environ
+  #- sudo luarocks install luautf8
   # Download and setup a standalone flash player debugger
   - haxe flash/install.hxml
   # Install haxelibs
@@ -84,19 +84,19 @@ install:
     else
       haxelib install hxcpp;
     fi
-  - haxelib install hxjava
-  - haxelib install hxcs
+  #- haxelib install hxjava
+  #- haxelib install hxcs
   - haxelib list
 
 script:
   - haxe build-interp.hxml
-  - haxe build-neko.hxml         && neko bin/HelloWorld.n
+  #- haxe build-neko.hxml         && neko bin/HelloWorld.n
   - haxe build-js.hxml           && node bin/HelloWorld.js
                                  && haxe phantomjs/run.hxml bin/HelloWorld.js
-  - haxe build-java.hxml         && java -jar bin/HelloWorld.jar
-  - haxe build-php.hxml          && php bin/index.php
-  - haxe build-cs.hxml           && mono bin/bin/HelloWorld.exe
+  #- haxe build-java.hxml         && java -jar bin/HelloWorld.jar
+  #- haxe build-php.hxml          && php bin/index.php
+  #- haxe build-cs.hxml           && mono bin/bin/HelloWorld.exe
   - haxe build-flash.hxml -D fdb && haxe flash/run.hxml bin/HelloWorld.swf
-  - haxe build-cpp.hxml          && ./bin/HelloWorld
-  - haxe build-python.hxml       && python3 bin/HelloWorld.py
-  - haxe build-lua.hxml          && lua bin/HelloWorld.lua
+  #- haxe build-cpp.hxml          && ./bin/HelloWorld
+  #- haxe build-python.hxml       && python3 bin/HelloWorld.py
+  #- haxe build-lua.hxml          && lua bin/HelloWorld.lua
