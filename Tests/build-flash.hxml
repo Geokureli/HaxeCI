@@ -1,2 +1,2 @@
-build-each.hxml
--swf bin/Run.swf
+Tests/build-each.hxml
+-swf Tests/bin/Run.swf
