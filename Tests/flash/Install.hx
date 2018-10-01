@@ -53,13 +53,14 @@ class Install {
 		return versionStr.split(",").map(Std.parseInt);
 	}
 	static function main() {
+		
 		switch (systemName()) {
 			case "Linux":
 				var fpDownload = getDownloadUrl();
 				// Download and unzip flash player
 				if (command("wget", [fpDownload]) != 0)
 					throw "failed to download flash player";
-				if (command("tar", ["-xf", Path.withoutDirectory(fpDownload), "-C", "flash"]) != 0)
+				if (command("tar", ["-xf", Path.withoutDirectory(fpDownload), "-C", "Tests/flash"]) != 0)
 					throw "failed to extract flash player";
 				deleteFile(Path.withoutDirectory(fpDownload));
 			case "Mac":

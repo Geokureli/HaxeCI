@@ -1,0 +1,2 @@
+Tests/build-each.hxml
+-js Tests/bin/Run.js
