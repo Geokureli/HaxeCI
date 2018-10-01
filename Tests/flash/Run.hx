@@ -16,6 +16,7 @@ class Run {
 			throw "unsupported system";
 	}
 	static function main() {
+		println("flash/Run started");
 		var args = args();
 		var swf = args[0];
 		var exitCode = switch (systemName()) {

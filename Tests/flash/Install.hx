@@ -53,6 +53,9 @@ class Install {
 		return versionStr.split(",").map(Std.parseInt);
 	}
 	static function main() {
+		
+		println("flash/Install.main");
+		
 		switch (systemName()) {
 			case "Linux":
 				var fpDownload = getDownloadUrl();
